@@ -1,16 +1,17 @@
 var song;
 var slider;
 
-function preload() {
-  song = loadSound("gods.mp3")
-}
 function setup() {
   createCanvas(400, 400);
-  slider = createSlider(0, 1, .1, 0.01)
+  song = loadSound("gods.mp3", loaded)
+  slider = createSlider(0, 1, .5, 0.01)
+}
+
+function loaded() {
   song.play();
 }
 
 function draw() {
-  background(230);
+  background(random(230));
   song.setVolume(slider.value());
 }
